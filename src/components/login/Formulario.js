@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'; // Asegúrate de importar useNav
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './Formulario.css';
+import { FormattedMessage } from 'react-intl';
 
 function Formulario() {
   const [login, setLogin] = useState('');
@@ -38,47 +39,55 @@ function Formulario() {
     }
   };
 
-  return (
-    <div className="form-container">
-      <h1>Inicio de sesión</h1>
-
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Nombre de usuario</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter user"
-            value={login}
-            onChange={(e) => setLogin(e.target.value)}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Contraseña</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Ingresar
+  return (<div className="form-container">
+    <h1>
+      <FormattedMessage id="Inicio de sesion" defaultMessage="Inicio de sesion"/>
+    </h1>
+  
+    <Form onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>
+          <FormattedMessage id="Nombre de usuario" defaultMessage="Nombre de usuario"/>
+        </Form.Label>
+        <Form.Control
+          type="text"
+          placeholder=""
+          value={login}
+          onChange={(e) => setLogin(e.target.value)}
+        />
+      </Form.Group>
+  
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>
+          <FormattedMessage id="Contraseña" defaultMessage="Contraseña"/>
+        </Form.Label>
+        <Form.Control
+          type="password"
+          placeholder=""
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </Form.Group>
+  
+      <div className="d-flex justify-content-between mt-3">
+        <Button variant="primary" type="submit" className="btn-wide">
+          <FormattedMessage id="Ingresar" defaultMessage="Ingresar"/>
         </Button>
-
+  
         <Button
           variant="danger"
           type="button"
           onClick={() => { setLogin(''); setPassword(''); setMessage(''); }}
+          className="btn-wide"
         >
-          Cancelar
+          <FormattedMessage id="Cancelar" defaultMessage="Cancelar"/>
         </Button>
-      </Form>
-
-      {message && <p className="message">{message}</p>} {/* Añade una clase para los mensajes */}
-    </div>
-  );
+      </div>
+    </Form>
+    {message && <p className="message">{message}</p>} {/* Añade una clase para los mensajes */}
+  </div>
+  )
 }
+
 
 export default Formulario;

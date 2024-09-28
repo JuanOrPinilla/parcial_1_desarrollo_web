@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Para centrar verticalmente */
+    height: 35vh; /* Para centrar verticalmente */
   }
   
   form {
@@ -21,9 +21,11 @@
     margin-bottom: 5px;
   }
   
-  .button-group {
-    display: flex;
-    justify-content: space-between; /* Espaciado entre botones */
-    margin-top: 5px;
+
+  .btn-space {
+    margin-left: 10px;
   }
-  
+
+  .btn-wide {
+    width: 150px;
+  }

@@ -11,6 +11,10 @@
   
   .robots-image {
     width: 100%;
-    max-width: 800px;
+    max-width: 1300px;
     height: auto;
+  }
+
+  .header {
+    margin-bottom: 10px;
   }

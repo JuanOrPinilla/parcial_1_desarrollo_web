@@ -1,35 +1,54 @@
 // components/RobotDetail.js
 import React from 'react';
-import { Card } from 'react-bootstrap'; // Asegúrate de importar Card de react-bootstrap
+import { Card } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
 
 const RobotDetail = ({ robot }) => {
   if (!robot) return null;
 
   return (
-    <Card style={{ width: "18rem", height: "40rem" }} className="mb-3">
+    <Card style={{ width: "26rem", height: "26rem" ,backgroundColor: "#e2e6ea" }} className="mb-3">
+  <Card.Body>
+    <Card.Text>
+      <div style={{ textAlign: "center" }}>
+        <strong>
+          <FormattedMessage id="Nombre" defaultMessage="Nombre:" />
+        </strong> {robot.nombre}
+      </div>
+      <br />
+      <strong>
       <Card.Img
-        style={{ height: "14rem" }}
+        className="d-block mx-auto"
+        style={{ height: "10rem" , width:"10rem"}}
         variant="top"
         src={robot.imagen}
         alt={robot.nombre}
       />
-      <Card.Body>
+      </strong>
+      <br />
+      <strong>
+        <FormattedMessage id="Modelo" defaultMessage="Modelo:" />
+      </strong> {robot.modelo}
+      <br />
+      <strong>
+        <FormattedMessage id="Empresa Fabricante" defaultMessage="Empresa Fabricante:" />
+      </strong> {robot.empresaFabricante}
+      <br />
+      <strong>
+        <FormattedMessage id="Año de fabricacion" defaultMessage="Año de Fabricación:" />
+      </strong> {robot.añoFabricacion}
+      <br />
+      <strong>
+        <FormattedMessage id="Capacidad de procesamiento" defaultMessage="Capacidad de Procesamiento:" />
+      </strong> {robot.capacidadProcesamiento}
+      <br />
+      <strong>
+        <FormattedMessage id="Humor" defaultMessage="Humor:" />
+      </strong> {robot.humor}
+    </Card.Text>
+  </Card.Body>
+</Card>
 
-        <Card.Text>
-        <   strong>Nombre:</strong> {robot.nombre}
-            <br />
-          <strong>Modelo:</strong> {robot.modelo}
-          <br />
-          <strong>Empresa Fabricante:</strong> {robot.empresaFabricante}
-          <br />
-          <strong>Año de Fabricación:</strong> {robot.añoFabricacion}
-          <br />
-          <strong>Capacidad de Procesamiento:</strong> {robot.capacidadProcesamiento}
-          <br />
-          <strong>Humor:</strong> {robot.humor}
-        </Card.Text>
-      </Card.Body>
-    </Card>
   );
 };
 

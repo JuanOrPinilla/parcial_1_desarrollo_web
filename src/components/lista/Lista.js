@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import RobotDetail from './RobotDetail'; // Asegúrate de importar el componente RobotDetail
+import RobotDetail from './RobotDetail';
+import { FormattedMessage } from 'react-intl';
+import './Lista.css'; // Verifica la ruta
 
 const Lista = () => {
   const [robots, setRobots] = useState([]);
@@ -11,7 +12,7 @@ const Lista = () => {
   useEffect(() => {
     const fetchRobots = async () => {
       try {
-        const response = await fetch('http://localhost:3001/robots'); // Endpoint para obtener robots
+        const response = await fetch('http://localhost:3001/robots');
         if (!response.ok) {
           throw new Error('Error en la respuesta de la red');
         }
@@ -34,9 +35,7 @@ const Lista = () => {
         throw new Error('Robot no encontrado');
       }
       const data = await response.json();
-
       data.imagen = data.imagen.replace('github.com', 'raw.githubusercontent.com').replace('/blob/', '/');
-      
       setSelectedRobot(data);
     } catch (err) {
       setError('Error al cargar los detalles: ' + err.message);
@@ -48,16 +47,15 @@ const Lista = () => {
 
   return (
     <div className="container mt-4">
-      <h2 className="text-center">Lista de Robots</h2>
       <div className="row">
         <div className="col-md-6">
-          <table className="table table-striped">
-            <thead className="thead-dark">
+          <table className="table">
+            <thead className="table-dark">
               <tr>
                 <th>ID</th>
-                <th>Nombre</th>
-                <th>Modelo</th>
-                <th>Empresa Fabricante</th>
+                <th><FormattedMessage id="Nombre" defaultMessage="Nombre"/></th>
+                <th><FormattedMessage id="Modelo" defaultMessage="Modelo"/></th>
+                <th><FormattedMessage id="Empresa Fabricante" defaultMessage="Empresa Fabricante"/></th>
               </tr>
             </thead>
             <tbody>
@@ -73,7 +71,7 @@ const Lista = () => {
           </table>
         </div>
         <div className="col-md-6">
-          <RobotDetail robot={selectedRobot} /> {/* Renderiza el detalle del robot */}
+          <RobotDetail robot={selectedRobot} />
         </div>
       </div>
     </div>

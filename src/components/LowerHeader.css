@@ -1,13 +1,12 @@
 .lower-header {
-    margin-top: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .lower-header p {
-    font-size: 18px;
-    color: #333;
-    font-weight: bold;
-  }
-  
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lower-header p {
+  font-size: 18px;
+  color: #333;
+  font-weight: normal;
+}
