@@ -84,7 +84,7 @@ function Formulario() {
         </Button>
       </div>
     </Form>
-    {message && <p className="message">{message}</p>} {/* Añade una clase para los mensajes */}
+    {message && <p className="message">{message}</p>} {/* Mensaje en rojo */}
   </div>
   )
 }
